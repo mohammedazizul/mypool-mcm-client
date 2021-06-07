@@ -1,0 +1,11 @@
+.noMatchDiv {
+    text-align: center;
+    padding-top: 50px;
+}
+.noMatchDiv h1 {
+    color: red;
+}
+.noMatchDiv img {
+    height: 100px;
+    width: 100px;
+}

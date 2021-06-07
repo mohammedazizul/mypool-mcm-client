@@ -1,0 +1,18 @@
+.loginMainDiv {
+    background-image: url("../../../images/home\ background.jpg");
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+    color: navy;
+    padding: 40px 40px 40px 40px;
+}
+.loginDiv {
+    background-color: rgb(199, 224, 203);
+    border: 2px solid navy;
+    border-radius: 20px;
+    margin: 0px 40px 0px 40px;
+    padding: 20px;
+}
+.btnLogin {
+
+}

@@ -1,0 +1,13 @@
+.homeMainDiv {
+    background-image: url("../../images/home\ background\ blur.jpg");
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat, repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+    height: 700px;
+}
+  /* Responsive */
+  @media screen and (max-width: 600px) {
+    .homeMainDiv {
+        height: 500px;
+    } 
+  }

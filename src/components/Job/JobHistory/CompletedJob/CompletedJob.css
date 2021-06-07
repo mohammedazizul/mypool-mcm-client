@@ -1,0 +1,4 @@
+.counter-cell::before{
+    counter-increment: tableCount; 
+    content: ""counter(tableCount)"."; 
+}
