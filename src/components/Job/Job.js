@@ -42,7 +42,7 @@ const Job = () => {
             <div className="jobSection">
                 <div>
                     {
-                        pendingJobData.map(job => <JobCard job={job} key={job.id}/>)
+                        pendingJobData.map(job => <JobCard job={job} key={job.job_id}/>)
                     }
                 </div>
             </div>

@@ -22,6 +22,42 @@ import CheckSecurityQuestions from './components/SecurityQuestions/CheckSecurity
 import ResetSecurityQuestions from './components/SecurityQuestions/ResetSecurityQuestions/ResetSecurityQuestions';
 
 function App() {
+  // reference : for window orientation 
+  // https://developer.mozilla.org/en-US/docs/Web/API/Window/orientation
+  // https://stackoverflow.com/questions/5284878/how-do-i-correctly-detect-orientation-change-using-phonegap-on-ios/36087703#36087703
+
+  // Event listener to determine change (horizontal/portrait)
+  window.addEventListener("orientationchange", updateOrientation); 
+
+  function updateOrientation() {
+  switch (window.orientation)
+  {   
+      case 0:
+          // Do your thing
+          console.log("w 0 : ", window.orientation)
+          break;
+
+      case -90:
+          // Do your thing
+          console.log("w -90 : ", window.orientation)
+          break;
+
+      case 90:
+          // Do your thing
+          console.log("w 90 : ", window.orientation)
+          break;
+
+          case 180:
+            // Do your thing
+            console.log("w 180 : ", window.orientation)
+            break;
+
+      default:
+          console.log("w  : ", window.orientation)
+          break;
+      }
+  }
+
 
   const [user, setUser] = useState("Not Logged In");
 

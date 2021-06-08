@@ -6,7 +6,7 @@ import { useHistory } from 'react-router';
 
 const JobCard = (props) => {
 
-    // console.log(props);
+    console.log(props);
 
     // using user context to get logged in user data
     const [user, setUser] = useContext(UserContext);
@@ -18,7 +18,7 @@ const JobCard = (props) => {
     // const { id, jobStatus, fullName, address, contact, latitude, longitude, jobDate, partTimeStaff, fullTimeStaff } = props.job;
 
     // for server data
-    const { id, jobStatus, clientId, date, ptStaffName, ftStaffName, clientName, clientAddress, clientContact, completionImage } = props.job;
+    const { job_id, status, clientId, date, ptStaffName, ftStaffName, clientName, clientAddress, clientContact, picture } = props.job;
 
     // handle update status button function
     const handleUpdateStatus = (job_id) => {
@@ -32,8 +32,8 @@ const JobCard = (props) => {
             <Card className="text-center m-2">
                 <Card.Header>
                     <h4>
-                        Job ID: <Badge variant="info">{id}</Badge> &nbsp;
-                        <Badge variant="primary">{jobStatus}</Badge>
+                        Job ID: <Badge variant="info">{job_id}</Badge> &nbsp;
+                        <Badge variant="primary">{status.toUpperCase()}</Badge>
                     </h4>
                 </Card.Header>
                 <Card.Body>
@@ -73,7 +73,7 @@ const JobCard = (props) => {
                         <Button 
                             variant="warning" 
                             block 
-                            onClick={() => handleUpdateStatus(id)}
+                            onClick={() => handleUpdateStatus(job_id)}
                             >UPDATE STATUS
                         </Button>
                         </Container>

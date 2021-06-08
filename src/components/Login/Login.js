@@ -85,21 +85,21 @@ const Login = () => {
                 
                 if (data.length === 0) {    // if the response from server is empty
                     alert( "Invalid id/username/password !" );
-                    //
+                    // calling the function to increase the value of account status 
                     increaseInvalidAttempt();
                 }
                 else{
                     const userInfo = {
-                        staffID: data[0].userId,
+                        staffID: data[0].staff_id,
                         username: data[0].username,
                         userRole: data[0].role,
-                        userStatus: data[0].userStatus,
-                        newUser: data[0].newUser
+                        userStatus: data[0].account_status,
+                        newUser: data[0].new_account
                     };
                     setUser(userInfo);
     
-                    console.log(data[0].newUser);
-                    console.log(data[0].userStatus);
+                    console.log(data[0].new_account);
+                    console.log(data[0].account_status);
                     
                     if (data[0].userStatus > 3) {
                         alert( "account blocked ! \nPlease contact Head Office, Thank You");
@@ -107,7 +107,7 @@ const Login = () => {
                         history.push("/home");
                     }
     
-                    if(data[0].newUser){
+                    if(data[0].new_account){
                         redirectToSetSecurityQuestion();
                     }
                     else {
