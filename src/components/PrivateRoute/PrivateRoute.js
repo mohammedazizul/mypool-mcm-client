@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Redirect, Route } from 'react-router';
 import { UserContext } from '../UserContext/UserContext';
 
+
 const PrivateRoute = ({children, ...rest}) => {
 
     const [user, setUser] = useContext(UserContext);

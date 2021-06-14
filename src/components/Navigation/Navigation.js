@@ -1,11 +1,12 @@
-import React, { useContext } from 'react';
 import './Navigation.css';
 import { Link } from 'react-router-dom';
 import logo from '../../images/logo.ico';
+import React, { useContext } from 'react';
 import { Badge, Nav, Navbar } from 'react-bootstrap';
-import { faUser } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { UserContext } from '../UserContext/UserContext';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBriefcase, faHistory, faHome, faSignInAlt, faSignOutAlt, faUser, faUserPlus, faUsersCog } from '@fortawesome/free-solid-svg-icons';
+
 
 const Navigation = () => {
 
@@ -13,16 +14,20 @@ const Navigation = () => {
 
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+
             <Link to="home">
                 <Navbar.Brand>
                     <img src={logo} alt="logo"/> MyPool-MCM
                 </Navbar.Brand>
             </Link>
+
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="mr-auto">
+
                     <Nav.Link>
-                        <Link to="/home" className="navLink">HOME</Link>
+                        <Link to="/home" className="navLink"><FontAwesomeIcon icon={faHome} /> HOME</Link>
                     </Nav.Link>
 
                     {/* this div will be available only if user in logged in */}
@@ -30,10 +35,10 @@ const Navigation = () => {
                         user.username &&
                         <div>
                             <Nav.Link>
-                                <Link to="/allJobs" className="navLink">JOB</Link>
+                                <Link to="/allJobs" className="navLink"><FontAwesomeIcon icon={faBriefcase} /> JOB</Link>
                             </Nav.Link>
                             <Nav.Link>
-                                <Link to="/jobHistory" className="navLink">HISTORY</Link>
+                                <Link to="/jobHistory" className="navLink"><FontAwesomeIcon icon={faHistory} /> HISTORY</Link>
                             </Nav.Link>
                         </div>
                     }
@@ -42,18 +47,19 @@ const Navigation = () => {
                     {
                         user.userRole === 'admin' &&          
                         <Nav.Link>
-                            <Link to="/register" className="navLink">REGISTER</Link>
+                            <Link to="/register" className="navLink"><FontAwesomeIcon icon={faUserPlus} /> REGISTER</Link>
                         </Nav.Link>
                     }
                     {/* conditional for the logged in user only */}
                     {
                         user.username &&          
                         <Nav.Link>
-                            <Link to="/resetSecurityQuestions" className="navLink">Update Security Questions</Link>
+                            <Link to="/resetSecurityQuestions" className="navLink"><FontAwesomeIcon icon={faUsersCog} /> USER AUTH</Link>
                         </Nav.Link>
                     }
                 </Nav>
                 <Nav>
+                    
                     <Nav.Link>
                         <Link to="/login" className="navLink">
                             {
@@ -76,8 +82,8 @@ const Navigation = () => {
                     <Nav.Link>
                         {
                             user.username 
-                            ? <Link to="/login" className="navLink">LOGOUT</Link>
-                            : <Link to="/login" className="navLink">LOGIN</Link>
+                            ? <Link to="/login" className="navLink"><FontAwesomeIcon icon={faSignOutAlt} /> LOGOUT</Link>
+                            : <Link to="/login" className="navLink"><FontAwesomeIcon icon={faSignInAlt} />LOGIN</Link>
                         }
                     </Nav.Link>
 

@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheckSquare } from '@fortawesome/free-solid-svg-icons';
 
 const Register = () => {
+    
     // state to set form data
     const [ form, setForm ] = useState({});
+
     // state to set form errors
     const [ errors, setErrors] = useState({});
 
@@ -147,7 +151,7 @@ const Register = () => {
                     </Form.Group>
 
                     <Button variant="primary" block type="submit" className="btnLogin">
-                        Register
+                        <FontAwesomeIcon icon={faCheckSquare} /> Register
                     </Button>
 
                 </Form>

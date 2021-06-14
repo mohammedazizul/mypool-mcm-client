@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from 'react';
 import { Table } from 'react-bootstrap';
+import React, { useEffect, useState } from 'react';
 import CompletedJob from './CompletedJob/CompletedJob';
 
 const JobHistory = () => {
 
     const [completedJobData, setCompletedJobData] = useState([]);
     const [jobCount, setJobCount] = useState(0);
+    const [payable, setPayable] = useState(0);
 
     // to load all completed job data
     useEffect(() => {
@@ -22,6 +23,7 @@ const JobHistory = () => {
             // console.log("job data : ", data);
             setCompletedJobData(data);
             setJobCount(data.length);
+            setPayable(data.length*40);
         })
         .catch((error) => {
             console.log("job data loading error : ", error);
@@ -30,7 +32,7 @@ const JobHistory = () => {
 
     return (
         <div>
-            <h1>Completed Job({jobCount}) List</h1>
+            <h1>Completed Job(s) List ({jobCount})</h1>
             <div>
                 {/* counter reset to add a auto increment counter in table column Sl. */}
                 <Table responsive="sm" style={{counterReset: "tableCount"}}> 
@@ -40,7 +42,7 @@ const JobHistory = () => {
                             <th>Job ID</th>
                             <th>Date</th>
                             <th>Status</th>
-                            <th>Amount</th>
+                            <th>Amount (RM)</th>
                             <th>Remarks</th>
                         </tr>
                     </thead>
@@ -50,7 +52,7 @@ const JobHistory = () => {
                     }
                     </tbody>
                 </Table>
-                <p>Total Receivable Amount : RM 00.00</p>
+                <p>Total Receivable Amount : <b>RM {payable}.00</b></p>
             </div>
         </div>
     );

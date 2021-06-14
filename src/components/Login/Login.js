@@ -1,9 +1,11 @@
-import React, { useContext, useState } from 'react';
-import { Button, Form } from 'react-bootstrap';
-import { useHistory, useLocation } from 'react-router';
-import { Link } from 'react-router-dom';
-import { UserContext } from '../UserContext/UserContext';
 import './Login.css';
+import { Link } from 'react-router-dom';
+import { Button, Form } from 'react-bootstrap';
+import React, { useContext, useState } from 'react';
+import { useHistory, useLocation } from 'react-router';
+import { UserContext } from '../UserContext/UserContext';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSignInAlt, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 
 
 const Login = () => {
@@ -203,8 +205,8 @@ const Login = () => {
 
                     {
                         user.username ? 
-                        <Button variant="danger" block onClick={handleLogout} className="btnLogin">Logout</Button> :
-                        <Button variant="primary" block type="submit" className="btnLogin">Login</Button>
+                        <Button variant="danger" block onClick={handleLogout} className="btnLogin"><FontAwesomeIcon icon={faSignOutAlt} /> Logout</Button> :
+                        <Button variant="primary" block type="submit" className="btnLogin"><FontAwesomeIcon icon={faSignInAlt} /> Login</Button>
                     }
                     <p style={{color: 'red'}}>{loginError}</p>
                 </Form>

@@ -5,17 +5,17 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-import Home from './components/Home/Home'
-import Navigation from './components/Navigation/Navigation'
-import NoMatch from './components/NoMatch/NoMatch'
+import Job from './components/Job/Job';
+import Home from './components/Home/Home';
 import Login from './components/Login/Login';
 import Footer from './components/Footer/Footer';
+import NoMatch from './components/NoMatch/NoMatch';
 import Register from './components/Register/Register';
-import Job from './components/Job/Job';
-import JobHistory from './components/Job/JobHistory/JobHistory'
-import { UserContext } from './components/UserContext/UserContext';
-import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import Navigation from './components/Navigation/Navigation';
 import UpdateJob from './components/Job/UpdateJob/UpdateJob';
+import JobHistory from './components/Job/JobHistory/JobHistory';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import { UserContext } from './components/UserContext/UserContext';
 import ResetPassword from './components/ResetPassword/ResetPassword';
 import SetSecurityQuestions from './components/SecurityQuestions/SetSecurityQuestions/SetSecurityQuestions';
 import CheckSecurityQuestions from './components/SecurityQuestions/CheckSecurityAnswers/CheckSecurityQuestions';
@@ -30,32 +30,27 @@ function App() {
   window.addEventListener("orientationchange", updateOrientation); 
 
   function updateOrientation() {
-  switch (window.orientation)
-  {   
+    switch (window.orientation) {   
       case 0:
           // Do your thing
           console.log("w 0 : ", window.orientation)
           break;
-
       case -90:
           // Do your thing
           console.log("w -90 : ", window.orientation)
           break;
-
       case 90:
           // Do your thing
           console.log("w 90 : ", window.orientation)
           break;
-
-          case 180:
-            // Do your thing
-            console.log("w 180 : ", window.orientation)
-            break;
-
+      case 180:
+          // Do your thing
+          console.log("w 180 : ", window.orientation)
+          break;
       default:
           console.log("w  : ", window.orientation)
           break;
-      }
+    }
   }
 
 

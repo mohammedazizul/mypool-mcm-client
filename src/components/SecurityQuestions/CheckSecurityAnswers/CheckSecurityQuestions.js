@@ -1,13 +1,18 @@
-import React, { useState } from 'react';
-import { Button, Form } from 'react-bootstrap';
-import { useHistory } from 'react-router';
 import './CheckSecurityQuestions.css';
+import React, { useState } from 'react';
+import { useHistory } from 'react-router';
+import { Button, Form } from 'react-bootstrap';
+import { faUserCheck } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const CheckSecurityQuestions = () => {
+
     // state to set form data
     const [ form, setForm ] = useState({});
+
     // state to set form errors
     const [ errors, setErrors] = useState({});
+    
     //
     const history = useHistory();
 
@@ -142,7 +147,7 @@ const CheckSecurityQuestions = () => {
                     </Form.Group>
 
                     <Button variant="primary" block type="submit" className="btnLogin">
-                        Check
+                        <FontAwesomeIcon icon={faUserCheck} /> Verify Me
                     </Button>
 
                 </Form>

@@ -3,6 +3,7 @@ import React from 'react';
 import sad from '../../images/sad emoji.png';
 
 const NoMatch = () => {
+    
     return (
         <div className="noMatchDiv">
             <h2>We are Sorry</h2>

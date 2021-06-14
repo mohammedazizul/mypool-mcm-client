@@ -1,23 +1,34 @@
-import React, { useContext, useState } from 'react';
-import { Button, Form } from 'react-bootstrap';
-import { useHistory } from 'react-router';
-import { UserContext } from '../../UserContext/UserContext';
 import './SetSecurityQuestions.css';
+import { useHistory } from 'react-router';
+import { Button, Form } from 'react-bootstrap';
+import React, { useContext, useState } from 'react';
+import { UserContext } from '../../UserContext/UserContext';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheckSquare } from '@fortawesome/free-solid-svg-icons';
+
 
 const SetSecurityQuestions = () => {
+
     // state to set form data
     const [ form, setForm ] = useState({});
+
     // state to set form errors
     const [ errors, setErrors] = useState({});
+
     // setting up the current logged in user
     const [user, setUser] = useContext(UserContext);
     console.log(user);
+
     //
     const history = useHistory();
+
+
     //
     function redirectToResetPassword() {
         history.push('/resetPassword');
     }
+
+
     // function to set form data and errors
     const setField = (field, value) => {
         setForm({
@@ -30,6 +41,7 @@ const SetSecurityQuestions = () => {
             [field]: null
         })
     }
+
 
     // function to set errors and display error message
     const findFormErrors = () => {
@@ -46,6 +58,7 @@ const SetSecurityQuestions = () => {
 
         return newErrors;
     }
+
 
     // to handle form submission
     const handleSubmit = e => {
@@ -93,6 +106,7 @@ const SetSecurityQuestions = () => {
         }
     }
 
+
     return (
         <div className="d-flex justify-content-center loginMainDiv">
             <div className="loginDiv">
@@ -126,7 +140,7 @@ const SetSecurityQuestions = () => {
                     </Form.Group>
 
                     <Button variant="primary" block type="submit" className="btnLogin">
-                        Confirm
+                        <FontAwesomeIcon icon={faCheckSquare} /> SUBMIT
                     </Button>
 
                 </Form>
@@ -134,5 +148,6 @@ const SetSecurityQuestions = () => {
         </div>
     );
 };
+
 
 export default SetSecurityQuestions;

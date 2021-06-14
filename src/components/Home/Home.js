@@ -1,8 +1,10 @@
 import './Home.css';
-import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
+import React, { useContext } from 'react';
 import { UserContext } from '../UserContext/UserContext';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 
 // Image Credit => https://www.123rf.com/
 
@@ -19,7 +21,9 @@ const Home = () => {
                 {
                     !user.username &&                 
                     <Link to="/login">
-                        <Button variant="primary" size="lg" className="float-right" style={{marginTop: "10px"}}>Click to Login</Button>
+                        <Button variant="primary" size="lg" className="float-right" style={{marginTop: "10px"}}>
+                            <FontAwesomeIcon icon={faSignOutAlt} /> Click to Login
+                        </Button>
                     </Link>
                 }
             </div>

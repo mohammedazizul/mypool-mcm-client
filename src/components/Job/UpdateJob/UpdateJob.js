@@ -1,8 +1,11 @@
+import './UpdateJob.css';
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Button, Form } from 'react-bootstrap';
 import { useHistory, useParams } from 'react-router';
-import { Link } from 'react-router-dom';
-import './UpdateJob.css'
+import noImage from '../../../images/No_Image_Available.jpg';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBackspace, faFileImage, faPenSquare } from '@fortawesome/free-solid-svg-icons';
 
 const UpdateJob = () => {
 
@@ -50,7 +53,8 @@ const UpdateJob = () => {
 
         // job status error
         if ( !jobStatus || jobStatus === '' ) newErrors.jobStatus = 'job status cannot be blank';
-        else if ( jobStatus !== 'COMPLETED'  ) newErrors.jobStatus = 'job status should be "completed"';
+        else if ( jobStatus === 'NEW'  ) newErrors.jobStatus = 'job status cannot be "NEW"';
+        else if ( !/COMPLETED|PENDING/.test(jobStatus) ) newErrors.jobStatus = 'job status Not Allowed';
 
         // job remarks error
         if ( !jobRemarks || jobRemarks === '' ) newErrors.jobRemarks = 'job remarks cannot be blank';
@@ -58,7 +62,6 @@ const UpdateJob = () => {
 
         // file error
         if ( !file || file === 'undefined' ) {
-            alert('Please Upload Image !')
             newErrors.file = 'please upload job completion image';
         }
 
@@ -141,15 +144,28 @@ const UpdateJob = () => {
                     </Form.Control.Feedback>
                 </Form.Group>
 
-                <Form.Group controlId="uploadJobImage">
-                    <Form.Label>Upload Job Completion Image</Form.Label>
-                    <Form.File 
-                        type="file"
-                        onChange={ e => setField('file', e.target.files[0]) }
-                        isInvalid={ !!error.file }
-                        feedback={ error.file }
-                    />
-                </Form.Group>
+                <div className="row">
+                    <div className="col">
+                        <Form.Group controlId="uploadJobImage">
+                            <Form.Label>
+                                <FontAwesomeIcon icon={faFileImage} /> Upload Job Completion Image
+                            </Form.Label>
+                            <Form.File 
+                                type="file"
+                                onChange={ e => setField('file', e.target.files[0]) }
+                                isInvalid={ !!error.file }
+                                feedback={ error.file }
+                            />
+                        </Form.Group>
+                    </div>
+                    <div className="col d-flex justify-content-end">
+                        {
+                            form.file ? 
+                            <img src={URL.createObjectURL(form.file)} alt="please upload job completion proof" style={{height: "70px", width: "80px"}}/> : 
+                            <img src={noImage} alt="please upload job completion proof" style={{height: "70px", width: "80px"}}/>
+                        }
+                    </div>
+                </div>
                 
                 <Form.Group controlId="formBasicCheckbox">
                     <Form.Check
@@ -165,7 +181,7 @@ const UpdateJob = () => {
                     {
                         checked ?
                         <Button variant="primary" type="submit">
-                            Update Status
+                            <FontAwesomeIcon icon={faPenSquare} /> Update Status
                         </Button>
                         :
                         <p style={{color: 'red'}}>please click the check-box</p>
@@ -173,7 +189,7 @@ const UpdateJob = () => {
                     </div>
                     <div className="col d-flex justify-content-end">
                         <Link to="/allJobs">
-                            <Button variant="warning">Go Back to Job</Button>
+                            <Button variant="warning"><FontAwesomeIcon icon={faBackspace} /> Back to Job</Button>
                         </Link>
                     </div>
                 </div>

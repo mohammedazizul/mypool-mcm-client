@@ -1,12 +1,16 @@
-import React, { useState } from 'react';
-import { Button, Form } from 'react-bootstrap';
-import { useHistory } from 'react-router';
 import './ResetPassword.css';
+import React, { useState } from 'react';
+import { useHistory } from 'react-router';
+import { Button, Form } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheckSquare } from '@fortawesome/free-solid-svg-icons';
+
 
 const ResetPassword = () => {
 
     // state to set form data
     const [ form, setForm ] = useState({});
+
     // state to set form errors
     const [ errors, setErrors] = useState({});
 
@@ -17,6 +21,7 @@ const ResetPassword = () => {
     function redirectToHome() {
         history.push("/home");
     }
+
 
     // function to set form data and errors
     const setField = (field, value) => {
@@ -30,6 +35,7 @@ const ResetPassword = () => {
             [field]: null
         })
     }
+
 
     // function to set errors and display error message
     const findFormErrors = () => {
@@ -55,6 +61,7 @@ const ResetPassword = () => {
 
         return newErrors;
     }
+
 
     // to handle form submission
     const handleSubmit = e => {
@@ -102,6 +109,7 @@ const ResetPassword = () => {
             })
         }
     }
+
 
     return (
         <div className="d-flex justify-content-center loginMainDiv">
@@ -158,7 +166,7 @@ const ResetPassword = () => {
                     </Form.Group>
 
                     <Button variant="primary" block type="submit" className="btnLogin">
-                        Confirm
+                        <FontAwesomeIcon icon={faCheckSquare} /> CONFIRM
                     </Button>
 
                 </Form>
@@ -166,5 +174,6 @@ const ResetPassword = () => {
         </div>
     );
 };
+
 
 export default ResetPassword;
