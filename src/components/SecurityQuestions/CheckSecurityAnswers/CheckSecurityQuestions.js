@@ -71,7 +71,7 @@ const CheckSecurityQuestions = () => {
                 town: form.town,
                 color: form.color
             }
-            console.log('user_data: ', user_data)
+            // console.log('user_data: ', user_data)
 
             // fetching data into SERVER
             const url = `http://localhost:3002/checkSecurityQuestions`;

@@ -81,7 +81,7 @@ const ResetPassword = () => {
                 newPassword: form.newPassword,
                 newUser: false
             }
-            console.log('user_auth: ', user_auth)
+            // console.log('user_auth: ', user_auth)
 
             // fetching data into SERVER
             const url = `http://localhost:3002/resetPassword`;
@@ -94,7 +94,7 @@ const ResetPassword = () => {
             })
             .then(response => response.json())
             .then(data => {
-                console.log('Success: ', data);
+                // console.log('Success: ', data);
                 if(data.affectedRows > 0){
                     alert( 'Password Reset Successful, Thank You !' );
                     redirectToHome();

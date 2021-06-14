@@ -8,7 +8,7 @@ const Job = () => {
 
     // using user context to get logged in user data
     const [user, setUser] = useContext(UserContext);
-    console.log(user);
+    // console.log(user);
 
     const [pendingJobData, setPendingJobData] = useState([]);
 

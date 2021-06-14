@@ -20,6 +20,8 @@ const JobCard = (props) => {
     // for server data
     const { job_id, status, date, full_name, client_name, address, phone } = props.job;
 
+    console.log("job-data: ",props.data);
+
     // converting the SQL date + time string to date only
     const jobDate = date.split('T')[0];
 

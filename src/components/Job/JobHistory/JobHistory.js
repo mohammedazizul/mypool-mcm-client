@@ -7,6 +7,7 @@ import { UserContext } from '../../UserContext/UserContext';
 const JobHistory = () => {
 
     const [ user, setUser] = useContext(UserContext);
+    // console.log(user);
 
     const [completedJobData, setCompletedJobData] = useState([]);
     const [jobCount, setJobCount] = useState(0);
@@ -47,7 +48,9 @@ const JobHistory = () => {
                             <th>Job ID</th>
                             <th>Date</th>
                             <th>Status</th>
-                            <th>Amount (RM)</th>
+                            {
+                                (user.userRole === 'part-time-staff') && <th>Amount (RM)</th>
+                            }
                             <th>Remarks</th>
                         </tr>
                     </thead>
@@ -57,7 +60,9 @@ const JobHistory = () => {
                     }
                     </tbody>
                 </Table>
-                <p>Total Receivable Amount : <b>RM {payable}.00</b></p>
+                {
+                    (user.userRole === 'part-time-staff') && <p>Total Receivable Amount : <b>RM {payable}.00</b></p>
+                }
             </div>
         </div>
     );

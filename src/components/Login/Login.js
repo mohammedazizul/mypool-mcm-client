@@ -83,7 +83,7 @@ const Login = () => {
             })
             .then(response => response.json())
             .then(data => {
-                console.log(data)
+                // console.log(data)
                 
                 if (data.length === 0) {    // if the response from server is empty
                     alert( "Invalid id/username/password !" );
@@ -103,8 +103,8 @@ const Login = () => {
                     console.log(data[0].new_account);
                     console.log(data[0].account_status);
                     
-                    if (data[0].userStatus > 3) {
-                        alert( "account blocked ! \nPlease contact Head Office, Thank You");
+                    if (data[0].account_status > 3) {
+                        alert( "ACCOUNT BLOCKED ! \nPlease contact Head Office, Thank You");
                         setUser({});
                         history.push("/home");
                     }
@@ -136,7 +136,7 @@ const Login = () => {
         })
         .then(response => response.json())
         .then(data => {
-            console.log(data)
+            // console.log(data)
         })
         .catch((error) => {
             console.log('Error: ', error);

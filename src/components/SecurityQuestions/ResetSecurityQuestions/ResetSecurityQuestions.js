@@ -16,7 +16,7 @@ const ResetSecurityQuestions = () => {
 
     // setting up the current logged in user
     const [user, setUser] = useContext(UserContext);
-    console.log(user);
+    // console.log(user);
 
     //
     const history = useHistory();
@@ -72,7 +72,7 @@ const ResetSecurityQuestions = () => {
                 town: form.town,
                 color: form.color
             }
-            console.log('user_auth: ', user_data)
+            // console.log('user_auth: ', user_data)
 
             // fetching data into SERVER
             const url = `http://localhost:3002/updateSecurityQuestions`;
