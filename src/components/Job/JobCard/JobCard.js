@@ -18,7 +18,7 @@ const JobCard = (props) => {
     const history = useHistory();
 
     // for server data
-    const { job_id, status, clientId, date, ptStaffName, ftStaffName, clientName, clientAddress, clientContact } = props.job;
+    const { job_id, status, date, full_name, client_name, address, phone } = props.job;
 
     // converting the SQL date + time string to date only
     const jobDate = date.split('T')[0];
@@ -52,30 +52,30 @@ const JobCard = (props) => {
                         {/* full time staff name will no be displayed for full time staff  */}
                         {
                             user.userRole !== 'full-time-staff' && 
-                            <p className="pText">Full Time: {ftStaffName}</p>
+                            <p className="pText">Full Time: {full_name}</p>
                         }
                         
                         {/* part time staff name will no be displayed for part time staff  */}
                         {
                             user.userRole !== 'part-time-staff' && 
-                            <p className="pText">Part Time: {ptStaffName}</p>
+                            <p className="pText">Part Time: {full_name}</p>
                         }
                     </Card.Text>
                     <hr/>
                     <Card.Text>
                         <p className="pText"><b> Client Details - </b></p>
                         <p className="pText">
-                            <FontAwesomeIcon icon={faUserTie} /> Name: {clientName}
+                            <FontAwesomeIcon icon={faUserTie} /> Name: {client_name}
                         </p>
                         {/* contact will no be displayed for part time staff  */}
                         {
                             user.userRole !== 'part-time-staff' && 
                             <p className="pText">
-                                <FontAwesomeIcon icon={faPhone} /> Contact: {clientContact}
+                                <FontAwesomeIcon icon={faPhone} /> Contact: {phone}
                             </p>
                         }
                         <p className="pText">
-                            <FontAwesomeIcon icon={faMapMarkerAlt} /> Address: {clientAddress}
+                            <FontAwesomeIcon icon={faMapMarkerAlt} /> Address: {address}
                         </p>
 
                     </Card.Text>

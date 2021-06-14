@@ -1,8 +1,12 @@
 import { Table } from 'react-bootstrap';
 import React, { useEffect, useState } from 'react';
 import CompletedJob from './CompletedJob/CompletedJob';
+import { useContext } from 'react';
+import { UserContext } from '../../UserContext/UserContext';
 
 const JobHistory = () => {
+
+    const [ user, setUser] = useContext(UserContext);
 
     const [completedJobData, setCompletedJobData] = useState([]);
     const [jobCount, setJobCount] = useState(0);
@@ -13,10 +17,11 @@ const JobHistory = () => {
         // url to fetch data from server
         const url = `http://localhost:3002/getCompletedJob`;
         fetch(url, {
-            method: 'GET',
+            method: 'POST',
             headers: {
                 'Content-Type':'application/json',
-            }
+            },
+            body: JSON.stringify(user)
         })
         .then(response => response.json())
         .then(data => {

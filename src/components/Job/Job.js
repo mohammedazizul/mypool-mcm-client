@@ -15,12 +15,13 @@ const Job = () => {
     // to load all job data
     useEffect(() => {
         // url to fetch data from server
-        const url = `http://localhost:3002/getPendingJob`;
+        const url = `http://localhost:3002/getNewAndPendingJob`;
         fetch(url, {
-            method: 'GET',
+            method: 'POST',
             headers: {
                 'Content-Type':'application/json',
-            }
+            },
+            body: JSON.stringify(user)
         })
         .then(response => response.json())
         .then(data => {
