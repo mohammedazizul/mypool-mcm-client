@@ -17,7 +17,6 @@ const Home = () => {
             <div className="container" style={{border: "2px solid white", borderRadius: "10px"}} >
                 <h2>Welcome to</h2>
                 <h1 style={{ color: "DarkBlue", fontWeight: "bold", fontFamily: "Courier New" }}>MyPool-CM Sdn Bhd</h1>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non hic tempore porro repudiandae reprehenderit ipsa alias accusantium perferendis necessitatibus, accusamus autem minus. Consequuntur, ipsam quaerat. Ipsam, blanditiis? Nulla, consequuntur voluptatibus.</p>
                 {
                     !user.username &&                 
                     <Link to="/login">

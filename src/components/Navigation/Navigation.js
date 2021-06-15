@@ -1,6 +1,6 @@
 import './Navigation.css';
 import { Link } from 'react-router-dom';
-import logo from '../../images/logo.ico';
+import logo from '../../images/logo/MyPool-MCM-Phoenix-Logo-ICON.ico';
 import React, { useContext } from 'react';
 import { Badge, Nav, Navbar } from 'react-bootstrap';
 import { UserContext } from '../UserContext/UserContext';
@@ -17,7 +17,7 @@ const Navigation = () => {
 
             <Link to="home">
                 <Navbar.Brand>
-                    <img src={logo} alt="logo"/> MyPool-MCM
+                    <img src={logo} alt="logo" style={{backgroundColor: "", width: "50px", height: "50px"}}/> MyPool-MCM
                 </Navbar.Brand>
             </Link>
 

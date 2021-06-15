@@ -1,11 +1,11 @@
 .footer-div{
     background-color: #343A40;
-    height: 100px;
+    height: 70px;
     color: snow;
     font-size: 20px;
     font-family:'Courier New', Courier, monospace;
     text-align: center;
-    padding-top: 40px;
+    padding-top: 5px;
 }
   /* Responsive */
   @media screen and (max-width: 600px) {
@@ -14,7 +14,7 @@
         color: snow;
         font-size: 12px;
         text-align: center;
-        padding-top: 16px;
+        padding-top: 8px;
         word-break: break-all;
     }
     .footer-div p{
