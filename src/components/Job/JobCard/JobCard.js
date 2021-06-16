@@ -18,7 +18,7 @@ const JobCard = (props) => {
     const history = useHistory();
 
     // for server data
-    const { job_id, status, date, full_name, client_name, address, phone } = props.job;
+    const { job_id, status, date, ps_name, fs_name, client_name, address, phone } = props.job;
 
     console.log("job-data: ",props.data);
 
@@ -54,13 +54,13 @@ const JobCard = (props) => {
                         {/* full time staff name will no be displayed for full time staff  */}
                         {
                             user.userRole !== 'full-time-staff' && 
-                            <p className="pText">Full Time: {full_name}</p>
+                            <p className="pText">Full Time: {fs_name}</p>
                         }
                         
                         {/* part time staff name will no be displayed for part time staff  */}
                         {
                             user.userRole !== 'part-time-staff' && 
-                            <p className="pText">Part Time: {full_name}</p>
+                            <p className="pText">Part Time: {ps_name}</p>
                         }
                     </Card.Text>
                     <hr/>

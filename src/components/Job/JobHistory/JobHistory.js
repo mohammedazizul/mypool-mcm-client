@@ -56,7 +56,7 @@ const JobHistory = () => {
                     </thead>
                     <tbody>
                     {
-                        completedJobData.map(job => <CompletedJob key={job.id} job={job} />)
+                        completedJobData.map(job => <CompletedJob key={job.job_id} job={job} />)
                     }
                     </tbody>
                 </Table>
